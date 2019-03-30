@@ -1,0 +1,69 @@
+:root {
+    --x1: 0px;
+    --x2: 22px;
+    --tr: 0s;
+}
+
+.c-underline {
+
+    &::before {
+        content: "";
+        width: 20px;
+        height: 2px;
+        background: rgb(0, 142, 214);
+        display: block;
+        position: absolute;
+        transition: var(--tr);
+    }
+
+    &::after {
+        content: "";
+        width: 20px;
+        height: 2px;
+        background: rgb(0, 142, 214);
+        display: block;
+        position: absolute;
+        transition: var(--tr);
+    }
+
+    &--nav {
+
+        &::before {
+            bottom: -10px;
+            left: var(--x1);
+        }
+
+        &::after {
+            bottom: -10px;
+            left: var(--x2);
+        }
+    }
+
+    &--left {
+
+        &::before {
+            bottom: -35px;
+            left: 0;
+        }
+
+        &::after {
+            bottom: -35px;
+            left: 22px;
+        }
+    }
+
+    &--center {
+
+        &::before {
+            bottom: -35px;
+            right: 50%;
+            transform: translateX(-1px);
+        }
+
+        &::after {
+            bottom: -35px;
+            left: 50%;
+            transform: translateX(1px);
+        }
+    }
+}

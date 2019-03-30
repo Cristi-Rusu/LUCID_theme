@@ -1,0 +1,17 @@
+.c-about-l {
+    background-color: white;
+
+    &__list {
+
+    }
+
+    &__item {
+    display: flex;
+    align-items: center;
+    margin: 15px 0;
+
+        & span {
+            color: $black;
+        }
+    }
+}

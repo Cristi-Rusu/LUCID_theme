@@ -1,0 +1,5 @@
+.container {
+    @include minmedia(1300px) {
+        max-width: 1200px;
+    }
+}

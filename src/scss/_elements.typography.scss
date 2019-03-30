@@ -1,0 +1,47 @@
+html {
+    font-family: $base-font !important;
+    font-size: 18px;
+}
+
+h1 {
+    letter-spacing: 1px;
+    font-weight: 600;
+    font-size: 2.5rem;
+    line-height: 1;
+    margin: 25px 0;
+}
+
+h2 {
+    font-size: 1.9445rem;
+    font-weight: 600;
+    color: $black;
+    margin: 20px 0 65px 0;
+    line-height: 1;
+    position: relative;
+}
+
+h3 {
+    font-weight: 400;
+    font-size: 23px;
+    color: #1a1a1a;
+    line-height: 1;
+}
+
+h4 {
+    font-size: 0.7223rem;
+    color: $blue;
+    font-weight: bold;
+    text-transform: uppercase;
+    line-height: 3.429;
+    letter-spacing: 1px;
+    line-height: 1;
+    margin: 0;
+    line-height: 1;
+}
+
+p {
+    color: rgb(153, 153, 153);
+    line-height: 1.444;
+    margin: 0;
+    font-size: 1rem;
+}

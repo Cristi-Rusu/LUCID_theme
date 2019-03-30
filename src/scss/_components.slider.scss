@@ -1,0 +1,31 @@
+.c-slider {
+
+    &__dots {
+        height: 14px;
+        transition: .7s ease-in;
+    }
+
+    &__icon {
+        width: 8px;
+        height: 8px;
+        background: transparent;
+        border-radius: 50%;
+        border: 0.4px solid white;
+        cursor: pointer;
+        transition: .3s ease-in;
+
+        &:hover {
+            background: white;
+        }
+
+        .u-tap-area:active & {
+            background: white;
+        }
+    }
+
+    &__icon--active {
+        width: 14px;
+        height: 14px;
+        background: white;
+    }
+}

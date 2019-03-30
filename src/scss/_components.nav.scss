@@ -1,0 +1,17 @@
+.c-nav {
+    position: fixed;
+    top: 0;
+    z-index: 5;
+    width: 100%;
+    color: white;
+    transition: .3s;
+    background: transparent;
+    height: 90px;
+
+    &__list {
+        text-transform: capitalize;
+        font-weight: 400;
+        position: relative;
+        font-size: 16px;
+    }
+}
