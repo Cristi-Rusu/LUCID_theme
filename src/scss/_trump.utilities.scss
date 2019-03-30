@@ -145,6 +145,12 @@
             margin-right: auto;
         }
     }
+
+    &-bottom {
+        &__30 {
+            margin-bottom: 30px;
+        }
+    }
 }
 
 .u-border {
@@ -156,7 +162,7 @@
 .u-separator {
     &::after {
         content: "";
-        background-color: #ededed;
+        background-color: $grey;
         width: 100vw;
         height: 1px;
         position: absolute;

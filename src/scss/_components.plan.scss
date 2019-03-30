@@ -1,0 +1,51 @@
+.c-plan {
+
+    &__name {
+        height: 70px;
+        border: 1px solid #e0e0e0;
+        border-bottom: none;
+        font-size: 24px;
+        color: rgb(26, 26, 26);
+        font-weight: bold;
+        text-transform: uppercase;
+        line-height: 0.833;
+        color: $black;
+    }
+
+    &__price {
+        height: 150px;
+        transition: .3s;
+        border: 1px solid #e0e0e0;
+    }
+
+    &__cost {
+        font-size: 48px;
+        color: $black;
+        line-height: 0.417;
+        font-weight: 600;
+
+        & > span {
+            font-weight: 600;
+            font-size: 20px;
+            vertical-align: super;
+        }
+    }
+
+    &__period {
+        margin: 15px 0 0 0;
+    }
+
+    &__description {
+        padding: 50px 30px 30px 30px;
+        border: 1px solid #e0e0e0;
+        border-top: none;
+    }
+
+    &__text {
+        margin-bottom: 40px;
+    }
+
+    &__special {
+        color: $blue;
+    }
+}

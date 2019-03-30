@@ -1031,6 +1031,9 @@ p {
   display: flex;
   align-items: center;
   justify-content: center; }
+  .o-icon-cont--md {
+    width: 32px;
+    height: 32px; }
   .o-icon-cont--sm {
     width: 20px;
     height: auto;
@@ -1254,6 +1257,54 @@ p {
     padding-right: 20px;
     padding-left: 5px; }
 
+.c-pricing {
+  background: white;
+  text-align: center; }
+
+.c-plan__name {
+  height: 70px;
+  border: 1px solid #e0e0e0;
+  border-bottom: none;
+  font-size: 24px;
+  color: #1a1a1a;
+  font-weight: bold;
+  text-transform: uppercase;
+  line-height: 0.833;
+  color: #1a1a1a; }
+
+.c-plan__price {
+  height: 150px;
+  transition: .3s;
+  border: 1px solid #e0e0e0; }
+
+.c-plan__cost {
+  font-size: 48px;
+  color: #1a1a1a;
+  line-height: 0.417;
+  font-weight: 600; }
+  .c-plan__cost > span {
+    font-weight: 600;
+    font-size: 20px;
+    vertical-align: super; }
+
+.c-plan__period {
+  margin: 15px 0 0 0; }
+
+.c-plan__description {
+  padding: 50px 30px 30px 30px;
+  border: 1px solid #e0e0e0;
+  border-top: none; }
+
+.c-plan__text {
+  margin-bottom: 40px; }
+
+.c-plan__special {
+  color: #008ed6; }
+
+.c-contact {
+  background: #ededed;
+  text-align: center; }
+
 .u-price-hov {
   background: #008ed6;
   border-color: #008ed6; }
@@ -1355,6 +1406,9 @@ p {
 
 .u-mg-right__auto {
   margin-right: auto; }
+
+.u-mg-bottom__30 {
+  margin-bottom: 30px; }
 
 .u-border {
   border: 1px solid #e0e0e0;
