@@ -1040,6 +1040,9 @@ p {
     margin-right: 10px;
     margin-left: 0; }
 
+.o-block {
+  position: relative; }
+
 .c-nav {
   position: fixed;
   top: 0;
@@ -1304,6 +1307,41 @@ p {
 .c-contact {
   background: #ededed;
   text-align: center; }
+  .c-contact__form {
+    background-color: #15141a;
+    z-index: 2;
+    padding: 50px 75px 30px 55px; }
+  .c-contact__input {
+    border: 1px solid white;
+    background: #15141a;
+    border-radius: 3px;
+    opacity: 0.2;
+    height: 50px;
+    padding: 0 20px;
+    font-size: 14px;
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-align: left; }
+  .c-contact__text-area {
+    border: 1px solid white;
+    background: #15141a;
+    border-radius: 3px;
+    opacity: 0.2;
+    height: 190px;
+    padding: 20px;
+    font-size: 14px;
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-align: left; }
+  .c-contact__input::placeholder, .c-contact__text-area::placeholder {
+    font-size: 14px;
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+    line-height: 1.4;
+    text-align: left; }
 
 .u-price-hov {
   background: #008ed6;
@@ -1380,7 +1418,17 @@ p {
   align-items: flex-end;
   justify-content: flex-end; }
 
+.u-flex-align__s-l {
+  align-self: flex-start; }
+
+.u-flex-align__s-c {
+  align-self: center; }
+
+.u-flex-align__s-r {
+  align-self: flex-end; }
+
 .u-flex-dir__col {
+  display: flex;
   flex-direction: column; }
 
 .u-mg__intro {
@@ -1410,6 +1458,12 @@ p {
 .u-mg-bottom__30 {
   margin-bottom: 30px; }
 
+.u-mg-rl__auto {
+  margin: 0 auto; }
+
+.u-mg-tb__10 {
+  margin: 10px 0; }
+
 .u-border {
   border: 1px solid #e0e0e0;
   border-radius: 50%;
@@ -1425,11 +1479,20 @@ p {
   right: 0;
   display: block; }
 
-.u-pd__bottom-0 {
+.u-pd-bottom__none {
   padding-bottom: 0; }
 
-.u-pd__right-0 {
+.u-pd-right__10 {
+  padding-right: 10px; }
+
+.u-pd-right__none {
   padding-right: 0; }
 
-.u-pd__left-0 {
+.u-pd-left__10 {
+  padding-left: 10px; }
+
+.u-pd-left__none {
   padding-left: 0; }
+
+.u-poz-top__60 {
+  top: 60px; }
