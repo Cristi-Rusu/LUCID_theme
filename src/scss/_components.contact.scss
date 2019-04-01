@@ -4,31 +4,25 @@
 
     &__form {
         background-color: rgb(21, 20, 26);
-        z-index: 2;
         padding: 50px 75px 30px 55px;
     }
 
     &__input {
-        border: 1px solid white;
-        background: rgb(21, 20, 26);
-        border-radius: 3px;
-        opacity: 0.2;
         height: 50px;
         padding: 0 20px;
-        font-size: 14px;
-        color: white;
-        font-weight: bold;
-        text-transform: uppercase;
-        text-align: left;
     }
 
+    &__text-area {
+        height: 190px;
+        padding: 20px;
+    }
+
+    &__input,
     &__text-area {
         border: 1px solid white;
         background: rgb(21, 20, 26);
         border-radius: 3px;
         opacity: 0.2;
-        height: 190px;
-        padding: 20px;
         font-size: 14px;
         color: white;
         font-weight: bold;
@@ -45,5 +39,9 @@
         line-height: 1.4;
         text-align: left;
 
+    }
+
+    &__map {
+        height: 440px;
     }
 }

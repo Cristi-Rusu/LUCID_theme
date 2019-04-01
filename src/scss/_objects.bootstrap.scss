@@ -1,5 +1,18 @@
-.container {
-    @include minmedia(1300px) {
-        max-width: 1200px;
+// space the columns inside the rows
+
+@include media-breakpoint-between(lg, lg) {
+    .col-lg-4:nth-child(4){
+        margin-top: 30px;
+    }
+}
+
+@include media-breakpoint-between(md, md) {
+    .col-md-4:nth-child(4){
+        margin-top: 30px;
+    }
+
+    .col-md-5:nth-child(3),
+    .col-md-5:nth-child(4) {
+        margin-top: 30px;
     }
 }

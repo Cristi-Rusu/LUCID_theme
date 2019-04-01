@@ -1,4 +1,13 @@
+@keyframes fade {
+    from { opacity: 0 }
+    to { opacity: 1 }
+}
+
 .c-slider {
+
+    &__slide {
+        animation: fade .7s ease-in;
+    }
 
     &__dots {
         height: 14px;

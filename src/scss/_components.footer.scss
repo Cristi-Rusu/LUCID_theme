@@ -1,0 +1,20 @@
+.c-footer {
+    background-color: rgb(21, 20, 26);
+
+    &__link:hover &__icon {
+        fill: #008ed6;
+    }
+
+    &__icon {
+        fill: #444348;
+        transition: .3s;
+    }
+
+    &__copyright {
+        font-size: 14px;
+        color: rgb(68, 67, 72);
+        text-transform: uppercase;
+        text-align: center;
+        font-weight: 600;
+    }
+}

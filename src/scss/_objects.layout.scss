@@ -46,6 +46,10 @@
     position: relative;
     padding: 60px 0;
 
+    &--md {
+        padding: 40px 0;
+    }
+
     &--sm {
         padding: 25px 0 10px 0;
     }
@@ -69,6 +73,11 @@
         height: auto;
         margin-right: 10px;
         margin-left: 0;
+    }
+
+    &--xs {
+        width: 18px;
+        height: 18px;
     }
 }
 

@@ -124,6 +124,12 @@
     }
 }
 
+.u-flex-wrap {
+    &__no {
+        flex-wrap: nowrap;
+    }
+}
+
 .u-mg {
 
     &__intro {
@@ -134,11 +140,19 @@
     &__about-l-info {
         margin-top: 50px;
         margin-bottom: 60px;
+
+        @include media-breakpoint-down(md) {
+            margin-top: 0px;
+        }
     }
 
     &__about-s-info {
         margin-top: 90px;
-        margin-bottom: 60px;
+
+        @include media-breakpoint-down(lg) {
+            margin-top: 35px;
+            margin-bottom: 0;
+        }
     }
 
     &-top {
@@ -153,11 +167,9 @@
         &__110 {
             margin-top: 110px;
         }
-    }
 
-    &-right {
-        &__auto {
-            margin-right: auto;
+        &__neg70 {
+            margin-top: -70px;
         }
     }
 
@@ -230,6 +242,7 @@
 .u-poz {
     &-top {
         &__60 {
+            z-index: 2;
             top: 60px;
         }
     }
