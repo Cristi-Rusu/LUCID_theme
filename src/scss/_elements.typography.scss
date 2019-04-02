@@ -1,6 +1,10 @@
 html {
     font-family: $base-font !important;
     font-size: 18px;
+
+    @include media-breakpoint-down(md) {
+        font-size: 17px;
+    }
 }
 
 h1 {

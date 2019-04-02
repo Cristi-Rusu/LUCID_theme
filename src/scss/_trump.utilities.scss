@@ -27,7 +27,7 @@
 
     &--menu {
         display: none;
-        @include maxmedia(639px) {
+        @include media-breakpoint-down(sm) {
             display: block;
         }
     }
@@ -128,67 +128,8 @@
     &__no {
         flex-wrap: nowrap;
     }
-}
-
-.u-mg {
-
-    &__intro {
-        margin-top: 65px;
-        margin-bottom: 60px;
-    }
-
-    &__about-l-info {
-        margin-top: 50px;
-        margin-bottom: 60px;
-
-        @include media-breakpoint-down(md) {
-            margin-top: 0px;
-        }
-    }
-
-    &__about-s-info {
-        margin-top: 90px;
-
-        @include media-breakpoint-down(lg) {
-            margin-top: 35px;
-            margin-bottom: 0;
-        }
-    }
-
-    &-top {
-        &__30 {
-            margin-top: 30px;
-        }
-
-        &__40 {
-            margin-top: 40px;
-        }
-
-        &__110 {
-            margin-top: 110px;
-        }
-
-        &__neg70 {
-            margin-top: -70px;
-        }
-    }
-
-    &-bottom {
-        &__30 {
-            margin-bottom: 30px;
-        }
-    }
-
-    &-rl {
-        &__auto {
-            margin: 0 auto;
-        }
-    }
-
-    &-tb {
-        &__10 {
-            margin: 10px 0;
-        }
+    &__wrap {
+        flex-wrap: wrap;
     }
 }
 
@@ -211,39 +152,12 @@
     }
 }
 
-.u-pd {
-    &-bottom {
+.u-display {
+    &-sm {
         &__none {
-            padding-bottom: 0;
-        }
-    }
-
-    &-right {
-        &__10 {
-            padding-right: 10px;
-        }
-
-        &__none {
-            padding-right: 0;
-        }
-    }
-
-    &-left {
-        &__10 {
-            padding-left: 10px;
-        }
-
-        &__none {
-            padding-left: 0;
-        }
-    }
-}
-
-.u-poz {
-    &-top {
-        &__60 {
-            z-index: 2;
-            top: 60px;
+            @include media-breakpoint-down(sm) {
+                display: none;
+            }
         }
     }
 }

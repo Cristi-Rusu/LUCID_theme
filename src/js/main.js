@@ -1,33 +1,3 @@
-// similar to $(document).ready() from jquery
-var domIsReady = (function (domIsReady) {
-    var isBrowserIeOrNot = function () {
-        return (!document.attachEvent || typeof document.attachEvent === "undefined" ? "not-ie" : "ie");
-    }
-
-    domIsReady = function (callback) {
-        if (callback && typeof callback === "function") {
-            if (isBrowserIeOrNot() !== "ie") {
-                // DOM ready syntax for almost all browsers
-                document.addEventListener("DOMContentLoaded", function () {
-                    return callback();
-                });
-            } else {
-                // DOM ready syntax for Internet Explorer
-                document.attachEvent("onreadystatechange", function () {
-                    if (document.readyState === "complete") {
-                        return callback();
-                    }
-                });
-            }
-        } else {
-            console.error("The callback is not a function!");
-        }
-    }
-    return domIsReady;
-})(domIsReady || {});
-
-/****** END OF DOCUMENT READY FUNCTION ******/
-
 /****** BEGINNING OF FUNCTIONS ******/
 
 // style the nav acording to the pageYOffset
@@ -46,7 +16,7 @@ function navAppearance() {
 // to the section the user is viewing
 function translateUnderline(elemId, x1, x2) {
     const elem = document.getElementById(elemId);
-    if (window.scrollY > elem.offsetTop - 250) {
+    if (window.scrollY > elem.offsetTop - 265) {
         document.documentElement.style.setProperty("--x1", `${x1}px`);
         document.documentElement.style.setProperty("--x2", `${x2}px`);
     }
@@ -116,6 +86,8 @@ function bindScrollFun(scrollLinks) {
     }
 }
 
+// TODO: create the slider with slide objects
+
 // assign the initial slideIndex
 let slideIndex = 0;
 const slide = document.getElementsByClassName("c-slider__slide");
@@ -176,49 +148,42 @@ underlinePosition();
 const navLinks = document.querySelectorAll(".c-nav__link");
 bindScrollFun(navLinks);
 
-// on document ready
-(function (document, window, domIsReady, undefined) {
-    domIsReady(function () {
+// set trasition for nav underline on page ready
+document.documentElement.style.setProperty("--tr", ".1s linear");
 
-        // set trasition for nav underline on page ready
-        document.documentElement.style.setProperty("--tr", ".1s linear");
-
-        // get the index of each item in the node list to display the needed slide after click
-        const slideDots = document.getElementsByClassName("c-slider__dots")[0];
-        for (var i = 0; i < slideDots.children.length; i++) {
-            (function (index) {
-                // iterate through slideDots child elements
-                slideDots.children[i].onclick = function () {
-                    currentSlide(index);
-                }
-            })(i);
+// get the index of each item in the node list to display the needed slide after click
+const slideDots = document.getElementsByClassName("c-slider__dots")[0];
+for (var i = 0; i < slideDots.children.length; i++) {
+    (function (index) {
+        // iterate through slideDots child elements
+        slideDots.children[i].onclick = function () {
+            currentSlide(index);
         }
+    })(i);
+}
 
-        showSlide(slideIndex);
-        automaticSlideShow();
+showSlide(slideIndex);
+automaticSlideShow();
 
-        // hover effect on price plan when order button is hovered
-        const orderButtons = document.getElementsByClassName("js-order-btn");
-        for (var i = 0; i < orderButtons.length; i++) {
-            var orderButton = orderButtons[i];
-            // add hover effect on orderButton mouseover
-            orderButton.onmouseover = function () {
-                var grandParent = this.parentElement.parentElement;
-                grandParent.children[0].classList.add("u-name-hov");
-                grandParent.children[1].classList.add("u-price-hov");
-            }
-            // remove hover effect on orderButton mouseleave
-            orderButton.onmouseleave = function () {
-                var grandParent = this.parentElement.parentElement;
-                grandParent.children[0].classList.remove("u-name-hov");
-                grandParent.children[1].classList.remove("u-price-hov");
-            }
-        }
+// hover effect on price plan when order button is hovered
+const orderButtons = document.getElementsByClassName("js-order-btn");
+for (var i = 0; i < orderButtons.length; i++) {
+    var orderButton = orderButtons[i];
+    // add hover effect on orderButton mouseover
+    orderButton.onmouseover = function () {
+        var grandParent = this.parentElement.parentElement;
+        grandParent.children[0].classList.add("u-name-hov");
+        grandParent.children[1].classList.add("u-price-hov");
+    }
+    // remove hover effect on orderButton mouseleave
+    orderButton.onmouseleave = function () {
+        var grandParent = this.parentElement.parentElement;
+        grandParent.children[0].classList.remove("u-name-hov");
+        grandParent.children[1].classList.remove("u-price-hov");
+    }
+}
 
-        window.onscroll = function () {
-            navAppearance();
-            underlinePosition();
-        };
-
-    });
-})(document, window, domIsReady);
+window.onscroll = function () {
+    navAppearance();
+    underlinePosition();
+};

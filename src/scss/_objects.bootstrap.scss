@@ -1,3 +1,21 @@
+.container {
+    position: relative;
+}
+
+// change the gutter width for smaller screens
+// equals to 10px
+@media (max-width: map-get($grid-breakpoints, md)){
+    .row {
+        margin-right: -$grid-gutter-width / 3;
+        margin-left: -$grid-gutter-width / 3;
+    }
+    .row > .col,
+    .row > [class*="col-"] {
+        padding-right: $grid-gutter-width / 3;
+        padding-left: $grid-gutter-width / 3;
+    }
+}
+
 // space the columns inside the rows
 
 @include media-breakpoint-between(lg, lg) {
@@ -7,12 +25,23 @@
 }
 
 @include media-breakpoint-between(md, md) {
-    .col-md-4:nth-child(4){
+    .col-md-4:nth-child(4) {
         margin-top: 30px;
     }
 
     .col-md-5:nth-child(3),
     .col-md-5:nth-child(4) {
         margin-top: 30px;
+    }
+}
+
+@include media-breakpoint-between(sm, sm) {
+    .col-sm-12:nth-child(2) {
+        margin-top: 20px;
+    }
+
+    .col-sm-6:nth-child(3),
+    .col-sm-6:nth-child(4) {
+        margin-top: 20px;
     }
 }
