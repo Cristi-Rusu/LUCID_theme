@@ -34,8 +34,14 @@
 }
 
 .o-buttons {
+    height: 100%;
     display: flex;
     flex-flow: row nowrap;
+
+    & button {
+        margin-top: auto;
+        margin-bottom: auto;
+    }
 
     & button + button {
         margin-left: 20px;

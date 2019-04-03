@@ -9,6 +9,10 @@
     &__form {
         background-color: rgb(21, 20, 26);
         padding: 50px 75px 30px 55px;
+
+        @include media-breakpoint-down(xs) {
+            padding: 35px 50px 20px 40px;
+        }
     }
 
     &__input {
@@ -19,6 +23,8 @@
     &__text-area {
         height: 190px;
         padding: 20px;
+        resize: none;
+        overflow: scroll;
     }
 
     &__input,

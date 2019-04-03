@@ -4,7 +4,7 @@
 
 // change the gutter width for smaller screens
 // equals to 10px
-@media (max-width: map-get($grid-breakpoints, md)){
+@include media-breakpoint-down(sm) {
     .row {
         margin-right: -$grid-gutter-width / 3;
         margin-left: -$grid-gutter-width / 3;
@@ -36,12 +36,24 @@
 }
 
 @include media-breakpoint-between(sm, sm) {
+    .col-sm-6:nth-child(3),
+    .col-sm-6:nth-child(4) {
+        margin-top: 20px;
+    }
+}
+
+@include media-breakpoint-between(xxs, sm) {
     .col-sm-12:nth-child(2) {
         margin-top: 20px;
     }
+}
 
-    .col-sm-6:nth-child(3),
-    .col-sm-6:nth-child(4) {
+@include media-breakpoint-between(xs, xs) {
+    .col-xs-10:not(:first-child) {
+        margin-top: 20px;
+    }
+
+    .col-xs-6:nth-child(3) {
         margin-top: 20px;
     }
 }
