@@ -1,8 +1,13 @@
 .c-about-l {
     background-color: white;
 
-    &__list {
+    &__info {
+        margin-top: 50px;
+        margin-bottom: 60px;
 
+        @include media-breakpoint-down(md) {
+            margin-top: 0px;
+        }
     }
 
     &__item {

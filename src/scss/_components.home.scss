@@ -4,4 +4,30 @@
     background: url("../images/header-bg.jpg"), -webkit-linear-gradient( -45deg, rgb(21,20,26) 0%, rgba(21,20,26,0) 100%);
     background-repeat: no-repeat;
     background-size: cover;
+
+    &__intro {
+        margin-top: 65px;
+        margin-bottom: 60px;
+
+        @include media-breakpoint-between(md, md) {
+            position: absolute;
+            z-index: 2;
+        }
+
+        @include media-breakpoint-down(sm) {
+            margin-top: 20px;
+        }
+    }
+
+    &__image {
+        margin-top: 30px;
+
+        @include media-breakpoint-down(sm) {
+            display: none;
+        }
+    }
+
+    &__buttons {
+        margin-top: 40px;
+    }
 }

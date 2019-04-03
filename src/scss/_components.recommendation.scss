@@ -1,5 +1,9 @@
 .c-recommendation {
     text-align: left;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 
     &__text {
         font-size: 1.25rem;
@@ -7,6 +11,10 @@
         line-height: 32px;
         color: white;
         text-align: left;
+    }
+
+    &__author {
+        margin-top: 30px;
     }
 
     &__avatar {

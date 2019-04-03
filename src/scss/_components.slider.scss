@@ -7,11 +7,13 @@
 
     &__slide {
         animation: fade .7s ease-in;
+        margin-top: 110px;
     }
 
     &__dots {
         height: 14px;
         transition: .7s ease-in;
+        margin-top: 110px;
     }
 
     &__icon {

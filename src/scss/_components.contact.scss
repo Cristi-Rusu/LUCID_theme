@@ -2,6 +2,10 @@
     background: $grey;
     text-align: center;
 
+    &__info {
+        margin-top: 110px;
+    }
+
     &__form {
         background-color: rgb(21, 20, 26);
         padding: 50px 75px 30px 55px;
@@ -28,6 +32,7 @@
         font-weight: bold;
         text-transform: uppercase;
         text-align: left;
+        margin: 10px 0;
     }
 
     &__input::placeholder,
@@ -41,7 +46,12 @@
 
     }
 
+    &__submit {
+        margin: 10px 0;
+    }
+
     &__map {
         height: 440px;
+        margin-top: -70px;
     }
 }
