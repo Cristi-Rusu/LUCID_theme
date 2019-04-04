@@ -46,7 +46,7 @@
     }
 }
 
-@include media-breakpoint-down(xs) {
+@include media-breakpoint-between(xs, xs) {
     .col-xs-12:not(:first-child) {
         margin-top: 20px;
     }
