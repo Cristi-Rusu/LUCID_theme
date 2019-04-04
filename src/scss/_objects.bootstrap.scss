@@ -40,20 +40,36 @@
     .col-sm-6:nth-child(4) {
         margin-top: 20px;
     }
-}
 
-@include media-breakpoint-between(xxs, sm) {
-    .col-sm-12:nth-child(2) {
+    .col-sm-12:not(:first-child) {
         margin-top: 20px;
     }
 }
 
-@include media-breakpoint-between(xs, xs) {
+@include media-breakpoint-down(xs) {
+    .col-xs-12:not(:first-child) {
+        margin-top: 20px;
+    }
+
     .col-xs-10:not(:first-child) {
         margin-top: 20px;
     }
 
     .col-xs-6:nth-child(3) {
+        margin-top: 20px;
+    }
+}
+
+@include media-breakpoint-down(xxs) {
+    .col-12:not(:first-child) {
+        margin-top: 20px;
+    }
+
+    .col-11:not(:first-child) {
+        margin-top: 20px;
+    }
+
+    .col-10:not(:first-child) {
         margin-top: 20px;
     }
 }

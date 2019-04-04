@@ -1,14 +1,20 @@
+// TODO: realise the slider with slide objects
+// TODO: structure the script using modular aproach
+
 /****** BEGINNING OF FUNCTIONS ******/
 
 // style the nav acording to the pageYOffset
 function navAppearance() {
     const nav = document.querySelector(".c-nav");
+    const closeBtnCont = document.querySelector(".o-close-btn-container");
     if (window.pageYOffset > 40) {
         nav.style.background = "rgb(0, 0, 1)";
         nav.style.height = "65px";
+        closeBtnCont.style.height = "65px";
     } else {
         nav.style.background = "transparent";
         nav.style.height = "90px";
+        closeBtnCont.style.height = "90px";
     }
 }
 
@@ -42,7 +48,7 @@ function scrollToElement(element, duration) {
     var elementY = getElementY(element);
     // If element is close to page's bottom then window will scroll only to some position above the element.
     var targetY = document.body.scrollHeight - elementY < window.innerHeight ? document.body.scrollHeight - window.innerHeight : elementY;
-    var diff = targetY - startingY - 65;
+    var diff = targetY - startingY - 64;
     // Easing function: easeInOutCubic
     // From: https://gist.github.com/gre/1650294
     var easing = function (t) {
@@ -80,13 +86,11 @@ function bindScrollFun(scrollLinks) {
             scrollLinks[i].onclick = function (event) {
                 event.preventDefault();
                 scrollToElement(section, 1000);
-                // sideNavWidth("0px");
+                dropdownNavHeight("0px");
             }
         })(i);
     }
 }
-
-// TODO: create the slider with slide objects
 
 // assign the initial slideIndex
 let slideIndex = 0;
@@ -134,6 +138,12 @@ function automaticSlideShow() {
     setTimeout(automaticSlideShow, 15000);
 }
 
+// change the dropdown nav height
+function dropdownNavHeight(x) {
+    var dropdownNav = document.querySelector(".c-dropdown-nav");
+    dropdownNav.style.height = x;
+}
+
 /****** END OF FUNCTIONS ******/
 
 /****** BEGINNING OF THE PROGRAM ******/
@@ -146,10 +156,21 @@ underlinePosition();
 
 // scroll to section on navLink click
 const navLinks = document.querySelectorAll(".c-nav__link");
-bindScrollFun(navLinks);
+const dropdownNavLinks = document.querySelectorAll(".c-dropdown-nav__link");
 
-// set trasition for nav underline on page ready
-document.documentElement.style.setProperty("--tr", ".1s linear");
+bindScrollFun(navLinks);
+bindScrollFun(dropdownNavLinks);
+
+// reveal the dropdown nav on menuBar click
+const menuBar = document.querySelector(".js-menu");
+menuBar.onclick = function () {
+    dropdownNavHeight("375px");
+};
+
+const closeBtn = document.querySelector(".js-close-nav");
+closeBtn.onclick = function () {
+    dropdownNavHeight("0px");
+}
 
 // get the index of each item in the node list to display the needed slide after click
 const slideDots = document.getElementsByClassName("c-slider__dots")[0];

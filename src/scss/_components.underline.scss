@@ -1,7 +1,6 @@
 :root {
-    --x1: 0px;
-    --x2: 22px;
-    --tr: 0s;
+    --x1: 999999px;
+    --x2: 999999px;
 }
 
 .c-underline {
@@ -13,7 +12,7 @@
         background: rgb(0, 142, 214);
         display: block;
         position: absolute;
-        transition: var(--tr);
+        transition: .1s;
     }
 
     &::after {
@@ -23,7 +22,7 @@
         background: rgb(0, 142, 214);
         display: block;
         position: absolute;
-        transition: var(--tr);
+        transition: .1s;
     }
 
     &--nav {

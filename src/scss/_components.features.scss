@@ -4,5 +4,9 @@
 
     &__sellpoints {
         margin-top: 110px;
+
+        @include media-breakpoint-down(xs) {
+            margin-top: 90px;
+        }
     }
 }

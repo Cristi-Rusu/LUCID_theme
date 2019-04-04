@@ -1,0 +1,37 @@
+.c-dropdown-nav {
+    z-index: 100;
+    position: fixed;
+    top: 0;
+    background: black;
+    width: 100vw;
+    height: 0px;
+    transition: .3s;
+    color: #999999;
+    overflow-y: hidden;
+    text-transform: capitalize;
+    line-height: 40px;
+
+    &__list {
+        transition: .3s;
+        text-align: center;
+    }
+
+    &__close-btn {
+        transition: .3s;
+        font-size: 35px;
+        line-height: .4;
+        user-select: none;
+    }
+
+    &__link {
+        transition: .3s;
+        font-size: 20px;
+    }
+
+    &__link:hover,
+    &__link:active,
+    &__close-btn:hover,
+    &__close-btn:active {
+        color: #f1f1f1;
+    }
+}

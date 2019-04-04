@@ -1124,16 +1124,24 @@ p {
 @media (min-width: 576px) and (max-width: 767.98px) {
   .col-sm-6:nth-child(3),
   .col-sm-6:nth-child(4) {
+    margin-top: 20px; }
+  .col-sm-12:not(:first-child) {
     margin-top: 20px; } }
 
-@media (max-width: 767.98px) {
-  .col-sm-12:nth-child(2) {
-    margin-top: 20px; } }
-
-@media (min-width: 425px) and (max-width: 575.98px) {
+@media (max-width: 575.98px) {
+  .col-xs-12:not(:first-child) {
+    margin-top: 20px; }
   .col-xs-10:not(:first-child) {
     margin-top: 20px; }
   .col-xs-6:nth-child(3) {
+    margin-top: 20px; } }
+
+@media (max-width: 424.98px) {
+  .col-12:not(:first-child) {
+    margin-top: 20px; }
+  .col-11:not(:first-child) {
+    margin-top: 20px; }
+  .col-10:not(:first-child) {
     margin-top: 20px; } }
 
 .o-nav-place {
@@ -1170,6 +1178,9 @@ p {
 .o-section {
   position: relative;
   padding: 60px 0; }
+  @media (max-width: 575.98px) {
+    .o-section {
+      padding: 45px 0; } }
   .o-section--md {
     padding: 40px 0; }
   .o-section--sm {
@@ -1197,8 +1208,18 @@ p {
     width: 18px;
     height: 18px; }
 
+.o-close-btn-container {
+  height: 65px;
+  transition: .3s; }
+
 .o-block {
-  position: relative; }
+  position: relative;
+  margin-left: -15px;
+  margin-right: -15px; }
+  @media (max-width: 767.98px) {
+    .o-block {
+      margin-left: -10px;
+      margin-right: -10px; } }
   .o-block--top-60 {
     z-index: 2;
     top: 60px; }
@@ -1220,6 +1241,32 @@ p {
     @media (max-width: 767.98px) {
       .c-nav__list {
         display: none; } }
+
+.c-dropdown-nav {
+  z-index: 100;
+  position: fixed;
+  top: 0;
+  background: black;
+  width: 100vw;
+  height: 0px;
+  transition: .3s;
+  color: #999999;
+  overflow-y: hidden;
+  text-transform: capitalize;
+  line-height: 40px; }
+  .c-dropdown-nav__list {
+    transition: .3s;
+    text-align: center; }
+  .c-dropdown-nav__close-btn {
+    transition: .3s;
+    font-size: 35px;
+    line-height: .4;
+    user-select: none; }
+  .c-dropdown-nav__link {
+    transition: .3s;
+    font-size: 20px; }
+  .c-dropdown-nav__link:hover, .c-dropdown-nav__link:active, .c-dropdown-nav__close-btn:hover, .c-dropdown-nav__close-btn:active {
+    color: #f1f1f1; }
 
 .c-menu-bar {
   display: none;
@@ -1276,9 +1323,8 @@ p {
     margin-top: 40px; }
 
 :root {
-  --x1: 0px;
-  --x2: 22px;
-  --tr: 0s; }
+  --x1: 999999px;
+  --x2: 999999px; }
 
 .c-underline::before {
   content: "";
@@ -1287,7 +1333,7 @@ p {
   background: #008ed6;
   display: block;
   position: absolute;
-  transition: var(--tr); }
+  transition: .1s; }
 
 .c-underline::after {
   content: "";
@@ -1296,7 +1342,7 @@ p {
   background: #008ed6;
   display: block;
   position: absolute;
-  transition: var(--tr); }
+  transition: .1s; }
 
 .c-underline--nav::before {
   bottom: -10px;
@@ -1329,6 +1375,9 @@ p {
   background-color: white; }
   .c-features__sellpoints {
     margin-top: 110px; }
+    @media (max-width: 575.98px) {
+      .c-features__sellpoints {
+        margin-top: 90px; } }
 
 .c-btn {
   appearance: none;
@@ -1426,6 +1475,9 @@ p {
     text-align: left; }
   .c-recommendation__author {
     margin-top: 30px; }
+    @media (max-width: 767.98px) {
+      .c-recommendation__author {
+        margin-top: 20px; } }
   .c-recommendation__avatar {
     border-radius: 50%;
     width: 3.2rem;
@@ -1450,11 +1502,17 @@ p {
 .c-slider__slide {
   animation: fade .7s ease-in;
   margin-top: 110px; }
+  @media (max-width: 575.98px) {
+    .c-slider__slide {
+      margin-top: 90px; } }
 
 .c-slider__dots {
   height: 14px;
   transition: .7s ease-in;
   margin-top: 110px; }
+  @media (max-width: 575.98px) {
+    .c-slider__dots {
+      margin-top: 90px; } }
 
 .c-slider__icon {
   width: 8px;
@@ -1497,6 +1555,9 @@ p {
   text-align: center; }
   .c-pricing__plans {
     margin-top: 110px; }
+    @media (max-width: 575.98px) {
+      .c-pricing__plans {
+        margin-top: 90px; } }
 
 .c-plan__name {
   height: 70px;
@@ -1543,12 +1604,18 @@ p {
   text-align: center; }
   .c-contact__info {
     margin-top: 110px; }
+    @media (max-width: 575.98px) {
+      .c-contact__info {
+        margin-top: 90px; } }
   .c-contact__form {
     background-color: #15141a;
     padding: 50px 75px 30px 55px; }
     @media (max-width: 575.98px) {
       .c-contact__form {
         padding: 35px 50px 20px 40px; } }
+    @media (max-width: 424.98px) {
+      .c-contact__form {
+        padding: 40px 30px 30px 25px; } }
   .c-contact__input {
     height: 50px;
     padding: 0 20px; }

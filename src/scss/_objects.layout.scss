@@ -52,6 +52,10 @@
     position: relative;
     padding: 60px 0;
 
+    @include media-breakpoint-down(xs) {
+        padding: 45px 0;
+    }
+
     &--md {
         padding: 40px 0;
     }
@@ -92,8 +96,20 @@
     }
 }
 
+.o-close-btn-container {
+    height: 65px;
+    transition: .3s;
+}
+
 .o-block {
     position: relative;
+    margin-left: -15px;
+    margin-right: -15px;
+
+    @include media-breakpoint-down(sm) {
+        margin-left: -10px;
+        margin-right: -10px;
+    }
 
     &--top-60 {
         z-index: 2;

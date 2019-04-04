@@ -8,12 +8,20 @@
     &__slide {
         animation: fade .7s ease-in;
         margin-top: 110px;
+
+        @include media-breakpoint-down(xs) {
+            margin-top: 90px;
+        }
     }
 
     &__dots {
         height: 14px;
         transition: .7s ease-in;
         margin-top: 110px;
+
+        @include media-breakpoint-down(xs) {
+            margin-top: 90px;
+        }
     }
 
     &__icon {
