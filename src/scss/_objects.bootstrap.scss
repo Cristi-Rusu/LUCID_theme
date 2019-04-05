@@ -75,36 +75,36 @@
 // }
 
 @mixin space-columns(
-    $breakpoint,
+    $breakpoint-lower,
+    $breakpoint-upper,
     $top-margin,
     $start-column,
     $end-column: $start-column,
     $breakpoints: $grid-breakpoints,
     $columns: $grid-columns
 ) {
-    $infix: breakpoint-infix($breakpoint, $breakpoints);
-
-    @include media-breakpoint-between($breakpoint, $breakpoint, $breakpoints) {
-        @for $i from $start-column through $end-column {
-            .col#{$infix}-#{$i} {
-    		    margin-top: #{$top-margin}px;
-        	}
-            // this variable is used to remove margin from the first row of columns
-            $first-row: floor($columns / $i);
-            @for $j from 1 through $first-row {
-                .col#{$infix}-#{$i}:nth-child(#{$j}) {
-        		    margin-top: 0;
-            	}
+    @each $breakpoint, $breakpoint-val in $breakpoints {
+        $infix: breakpoint-infix($breakpoint, $breakpoints);
+        @if (map-get($breakpoints, $breakpoint-lower) <= $breakpoint-val
+            and map-get($breakpoints, $breakpoint-upper) >= $breakpoint-val) {
+            @include media-breakpoint-between($breakpoint, $breakpoint, $breakpoints) {
+                @for $i from $start-column through $end-column {
+                    .col#{$infix}-#{$i} {
+            		    margin-top: #{$top-margin}px;
+                	}
+                    // this variable is used to remove margin from the first row of columns
+                    $first-row: floor($columns / $i);
+                    @for $j from 1 through $first-row {
+                        .col#{$infix}-#{$i}:nth-child(#{$j}) {
+                		    margin-top: 0;
+                    	}
+                    }
+                }
             }
         }
     }
 }
 
-@each $breakpoint, $value in $breakpoints {
-    $infix: breakpoint-infix($breakpoint, $breakpoints);
-    @if (map-get($breakpoints, $breakpoint-lower) == map-get($breakpoints, $breakpoint)) {
 
-    }
-}
 
-@include space-columns(md, 100, 4);
+@include space-columns(sm, md, 100, 4, 6);
