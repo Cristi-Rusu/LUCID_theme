@@ -9,7 +9,7 @@
         margin-top: 65px;
         margin-bottom: 60px;
 
-        @include media-breakpoint-between(md, md) {
+        @include media-breakpoint-only(md) {
             position: absolute;
             z-index: 2;
         }
