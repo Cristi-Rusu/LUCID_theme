@@ -16,60 +16,95 @@
     }
 }
 
-// space the columns inside the rows
+// // space the columns inside the rows
+//
+// @include media-breakpoint-between(lg, lg) {
+//     .col-lg-4:nth-child(4){
+//         margin-top: 30px;
+//     }
+// }
+//
+// @include media-breakpoint-between(md, md) {
+//     .col-md-4:nth-child(4) {
+//         margin-top: 30px;
+//     }
+//
+//     .col-md-5:nth-child(3),
+//     .col-md-5:nth-child(4) {
+//         margin-top: 30px;
+//     }
+// }
+//
+// @include media-breakpoint-between(sm, sm) {
+//     .col-sm-6:nth-child(3),
+//     .col-sm-6:nth-child(4) {
+//         margin-top: 20px;
+//     }
+//
+//     .col-sm-12:not(:first-child) {
+//         margin-top: 20px;
+//     }
+// }
+//
+// @include media-breakpoint-between(xs, xs) {
+//     .col-xs-12:not(:first-child) {
+//         margin-top: 20px;
+//     }
+//
+//     .col-xs-10:not(:first-child) {
+//         margin-top: 20px;
+//     }
+//
+//     .col-xs-6:nth-child(3) {
+//         margin-top: 20px;
+//     }
+// }
+//
+// @include media-breakpoint-down(xxs) {
+//     .col-12:not(:first-child) {
+//         margin-top: 20px;
+//     }
+//
+//     .col-11:not(:first-child) {
+//         margin-top: 20px;
+//     }
+//
+//     .col-10:not(:first-child) {
+//         margin-top: 20px;
+//     }
+// }
 
-@include media-breakpoint-between(lg, lg) {
-    .col-lg-4:nth-child(4){
-        margin-top: 30px;
+@mixin space-columns(
+    $breakpoint,
+    $top-margin,
+    $start-column,
+    $end-column: $start-column,
+    $breakpoints: $grid-breakpoints,
+    $columns: $grid-columns
+) {
+    $infix: breakpoint-infix($breakpoint, $breakpoints);
+
+    @include media-breakpoint-between($breakpoint, $breakpoint, $breakpoints) {
+        @for $i from $start-column through $end-column {
+            .col#{$infix}-#{$i} {
+    		    margin-top: #{$top-margin}px;
+        	}
+            // this variable is used to remove margin from the first row of columns
+            $first-row: floor($columns / $i);
+            @for $j from 1 through $first-row {
+                .col#{$infix}-#{$i}:nth-child(#{$j}) {
+        		    margin-top: 0;
+            	}
+            }
+        }
     }
 }
 
-@include media-breakpoint-between(md, md) {
-    .col-md-4:nth-child(4) {
-        margin-top: 30px;
-    }
+@each $breakpoint, $value in $breakpoints {
+    $infix: breakpoint-infix($breakpoint, $breakpoints);
+    @if (map-get($breakpoints, $breakpoint-lower) == map-get($breakpoints, $breakpoint)) {
 
-    .col-md-5:nth-child(3),
-    .col-md-5:nth-child(4) {
-        margin-top: 30px;
     }
 }
 
-@include media-breakpoint-between(sm, sm) {
-    .col-sm-6:nth-child(3),
-    .col-sm-6:nth-child(4) {
-        margin-top: 20px;
-    }
-
-    .col-sm-12:not(:first-child) {
-        margin-top: 20px;
-    }
-}
-
-@include media-breakpoint-between(xs, xs) {
-    .col-xs-12:not(:first-child) {
-        margin-top: 20px;
-    }
-
-    .col-xs-10:not(:first-child) {
-        margin-top: 20px;
-    }
-
-    .col-xs-6:nth-child(3) {
-        margin-top: 20px;
-    }
-}
-
-@include media-breakpoint-down(xxs) {
-    .col-12:not(:first-child) {
-        margin-top: 20px;
-    }
-
-    .col-11:not(:first-child) {
-        margin-top: 20px;
-    }
-
-    .col-10:not(:first-child) {
-        margin-top: 20px;
-    }
-}
+@include space-columns(md, 100, 4);
