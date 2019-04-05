@@ -16,65 +16,32 @@
     }
 }
 
-// // space the columns inside the rows
-//
-// @include media-breakpoint-between(lg, lg) {
-//     .col-lg-4:nth-child(4){
-//         margin-top: 30px;
-//     }
-// }
-//
-// @include media-breakpoint-between(md, md) {
-//     .col-md-4:nth-child(4) {
-//         margin-top: 30px;
-//     }
-//
-//     .col-md-5:nth-child(3),
-//     .col-md-5:nth-child(4) {
-//         margin-top: 30px;
-//     }
-// }
-//
-// @include media-breakpoint-between(sm, sm) {
-//     .col-sm-6:nth-child(3),
-//     .col-sm-6:nth-child(4) {
-//         margin-top: 20px;
-//     }
-//
-//     .col-sm-12:not(:first-child) {
-//         margin-top: 20px;
-//     }
-// }
-//
-// @include media-breakpoint-between(xs, xs) {
-//     .col-xs-12:not(:first-child) {
-//         margin-top: 20px;
-//     }
-//
-//     .col-xs-10:not(:first-child) {
-//         margin-top: 20px;
-//     }
-//
-//     .col-xs-6:nth-child(3) {
-//         margin-top: 20px;
-//     }
-// }
-//
-// @include media-breakpoint-down(xxs) {
-//     .col-12:not(:first-child) {
-//         margin-top: 20px;
-//     }
-//
-//     .col-11:not(:first-child) {
-//         margin-top: 20px;
-//     }
-//
-//     .col-10:not(:first-child) {
-//         margin-top: 20px;
-//     }
-// }
+/*=================================
+=              Mixin              =
+=================================*/
 
-@mixin space-columns(
+// Sets vertical spacing between columns for the specified screen size.
+// The mixin takes 7 arguments, 3 of which are optional.
+// Works only for fixed width columns, ex: col-11, col-xl-3; NOT: col, col-lg, col-auto.
+// Bootstrap grid is required to use the mixin
+
+// 1st and 2nd argument- specify the range of screen sizes you want to aply the verical spacing.
+// 2 arguments should be given(if you want to aply spacing for only one breakpoint, write it 2 times.
+// EX: space-columns-vertically(xxs, md, $top-margin, $start-column) - from breakpoint "xxs" to breakpoint "md"
+// EX: space-columns-vertically(xs, xs, $top-margin, $start-column) - aply spacing only for breakpoint "xs"
+
+// 3rd argument is for the vertical margin
+// units should be specified, ex: 20px, 4rem, 1% etc.
+
+// 4th and 5th arguments are for specifying the columns to aply spacing to
+// 5th argument is optional and is used to set spacing for a range of columns
+// EX: space-columns-vertically($breakpoint-lower, $breakpoint-upper, $top-margin, 6) - space ".col-#{breakpoint}-6" between them
+// EX: space-columns-vertically($breakpoint-lower, $breakpoint-upper, $top-margin, 5, 7) - space .col-5, col-6 and .col-7
+
+// The 6th argument is the breakpoint map. Bootstrap's map is set by default.
+
+// 7th argument is the number of columns the layout has. Bootstrap's $grid-columns variable is set by default
+@mixin space-columns-vertically(
     $breakpoint-lower,
     $breakpoint-upper,
     $top-margin,
@@ -83,17 +50,26 @@
     $breakpoints: $grid-breakpoints,
     $columns: $grid-columns
 ) {
+    // get the value of the specified breakpoints
+    $breakpoint-lower-val: map-get($breakpoints, $breakpoint-lower);
+    $breakpoint-upper-val: map-get($breakpoints, $breakpoint-upper);
+
     @each $breakpoint, $breakpoint-val in $breakpoints {
+        // create the infix for current breakpoint
+        // note: Bootstrap function
         $infix: breakpoint-infix($breakpoint, $breakpoints);
-        @if (map-get($breakpoints, $breakpoint-lower) <= $breakpoint-val
-            and map-get($breakpoints, $breakpoint-upper) >= $breakpoint-val) {
-            @include media-breakpoint-between($breakpoint, $breakpoint, $breakpoints) {
+        // if the current breakpoint(the looped one) is between $breakpoint-lower and $breakpoint-upper, generate the styles for this breakpoint
+        @if ($breakpoint-val >= $breakpoint-lower-val
+            and $breakpoint-val <= $breakpoint-upper-val) {
+            @include media-breakpoint-only($breakpoint, $breakpoints) {
                 @for $i from $start-column through $end-column {
                     .col#{$infix}-#{$i} {
-            		    margin-top: #{$top-margin}px;
+            		    margin-top: #{$top-margin};
                 	}
-                    // this variable is used to remove margin from the first row of columns
+                    // this variable is used to remove top margin from the first row of columns
                     $first-row: floor($columns / $i);
+                    // EX: first 3 columns from a row with multiple .col-4
+                    // EX: first 2 columns from a row with multiple .col-5
                     @for $j from 1 through $first-row {
                         .col#{$infix}-#{$i}:nth-child(#{$j}) {
                 		    margin-top: 0;
@@ -105,6 +81,6 @@
     }
 }
 
+@include space-columns-vertically(md, lg, 30px, 4, 6);
 
-
-@include space-columns(sm, md, 100, 4, 6);
+@include space-columns-vertically(xxs, sm, 20px, 6, 12);
