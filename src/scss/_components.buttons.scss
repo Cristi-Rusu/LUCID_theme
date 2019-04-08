@@ -56,7 +56,7 @@
         &:hover {
             @include style-buttons( $blue, $blue );
             @extend %button-shadow;
-            color:
+            color: white;
         }
     }
 }
