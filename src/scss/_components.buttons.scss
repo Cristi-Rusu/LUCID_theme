@@ -1,3 +1,7 @@
+%button-shadow {
+    box-shadow: 0px 0px 3px 0px rgba(3, 3, 3, 0.1);
+}
+
 .c-btn {
     appearance: none;
     -webkit-appearance: none;
@@ -19,50 +23,40 @@
     }
 
     &--download {
-        border: 1px solid transparent;
-        background-color: $blue;
-        box-shadow: 0px 0px 3px 0px rgba(3, 3, 3, 0.1);
+        @include style-buttons( $blue, transparent );
+        @extend %button-shadow;
 
         &:hover {
-            background-color: transparent;
-            border-color: rgba(255, 255, 255, 0.2);
-            border-color: white;
+            @include style-buttons( transparent, $white );
         }
     }
 
     &--sendmess {
-        border: 1px solid transparent;
-        background-color: $blue;
-        box-shadow: 0px 0px 3px 0px rgba(3, 3, 3, 0.1);
+        @include style-buttons( $blue, transparent );
+        @extend %button-shadow;
 
         &:hover {
-            background-color: transparent;
-            border-color: rgba(255, 255, 255, 0.2);
-            border-color: white;
+            @include style-buttons( transparent, $white );
         }
     }
 
     &--view {
-        border: 1px solid rgba(255, 255, 255, 0.2);
-        background-color: transparent;
+        @include style-buttons( transparent, rgba(255, 255, 255, 0.2) );
 
         &:hover {
-            border-color: transparent;
-            box-shadow: 0px 0px 3px 0px rgba(3, 3, 3, 0.1);
-            border-color: white;
+            @include style-buttons( transparent, $white );
+            @extend %button-shadow;
         }
     }
 
     &--order {
-        border: 1px solid #e0e0e0;
-        background-color: white;
+        @include style-buttons( white, #e0e0e0 );
         color: $blue;
 
         &:hover {
-            background-color: $blue;
-            box-shadow: 0px 0px 3px 0px rgba(3, 3, 3, 0.1);
-            border: 1px solid $blue;
-            color: white;
+            @include style-buttons( $blue, $blue );
+            @extend %button-shadow;
+            color:
         }
     }
 }

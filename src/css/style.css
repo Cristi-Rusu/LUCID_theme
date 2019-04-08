@@ -1488,6 +1488,9 @@ p {
       .c-features__sellpoints {
         margin-top: 90px; } }
 
+.c-btn--download, .c-btn--sendmess, .c-btn--view:hover, .c-btn--order:hover {
+  box-shadow: 0px 0px 3px 0px rgba(3, 3, 3, 0.1); }
+
 .c-btn {
   appearance: none;
   -webkit-appearance: none;
@@ -1507,37 +1510,31 @@ p {
     .c-btn {
       width: 150px; } }
   .c-btn--download {
-    border: 1px solid transparent;
     background-color: #008ed6;
-    box-shadow: 0px 0px 3px 0px rgba(3, 3, 3, 0.1); }
+    border: 1px solid transparent; }
     .c-btn--download:hover {
       background-color: transparent;
-      border-color: rgba(255, 255, 255, 0.2);
-      border-color: white; }
+      border: 1px solid rgba(255, 255, 255, 0.7); }
   .c-btn--sendmess {
-    border: 1px solid transparent;
     background-color: #008ed6;
-    box-shadow: 0px 0px 3px 0px rgba(3, 3, 3, 0.1); }
+    border: 1px solid transparent; }
     .c-btn--sendmess:hover {
       background-color: transparent;
-      border-color: rgba(255, 255, 255, 0.2);
-      border-color: white; }
+      border: 1px solid rgba(255, 255, 255, 0.7); }
   .c-btn--view {
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    background-color: transparent; }
+    background-color: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.2); }
     .c-btn--view:hover {
-      border-color: transparent;
-      box-shadow: 0px 0px 3px 0px rgba(3, 3, 3, 0.1);
-      border-color: white; }
+      background-color: transparent;
+      border: 1px solid rgba(255, 255, 255, 0.7); }
   .c-btn--order {
-    border: 1px solid #e0e0e0;
     background-color: white;
+    border: 1px solid #e0e0e0;
     color: #008ed6; }
     .c-btn--order:hover {
       background-color: #008ed6;
-      box-shadow: 0px 0px 3px 0px rgba(3, 3, 3, 0.1);
       border: 1px solid #008ed6;
-      color: white; }
+      color: initial; }
 
 .c-about-l {
   background-color: white; }

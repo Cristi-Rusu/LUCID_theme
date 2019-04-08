@@ -1,11 +1,4 @@
-@mixin minmedia($size) {
-  @media(min-width: $size) {
-    @content;
-  }
-}
-
-@mixin maxmedia($size) {
-  @media(min-width: $size) {
-    @content;
-  }
+@mixin style-buttons($background-color, $border-color) {
+	background-color: $background-color;
+	border: 1px solid $border-color;
 }

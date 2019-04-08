@@ -1,6 +1,3 @@
-// TODO: realise the slider with slide objects
-// TODO: structure the script using modular aproach
-
 /****** BEGINNING OF FUNCTIONS ******/
 
 // style the nav acording to the pageYOffset
@@ -94,8 +91,8 @@ function bindScrollFun(scrollLinks) {
 
 // assign the initial slideIndex
 let slideIndex = 0;
-const slide = document.getElementsByClassName("c-slider__slide");
-const slideIcons = document.getElementsByClassName("c-slider__icon");
+const slide = document.querySelectorAll(".c-slider__slide");
+const slideIcons = document.querySelectorAll(".c-slider__icon");
 
 function showSlide(n) {
     var i;
@@ -173,7 +170,7 @@ closeBtn.onclick = function () {
 }
 
 // get the index of each item in the node list to display the needed slide after click
-const slideDots = document.getElementsByClassName("c-slider__dots")[0];
+const slideDots = document.querySelector(".c-slider__dots");
 for (var i = 0; i < slideDots.children.length; i++) {
     (function (index) {
         // iterate through slideDots child elements
@@ -187,7 +184,7 @@ showSlide(slideIndex);
 automaticSlideShow();
 
 // hover effect on price plan when order button is hovered
-const orderButtons = document.getElementsByClassName("js-order-btn");
+const orderButtons = document.querySelectorAll(".js-order-btn");
 for (var i = 0; i < orderButtons.length; i++) {
     var orderButton = orderButtons[i];
     // add hover effect on orderButton mouseover
